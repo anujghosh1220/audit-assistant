@@ -4,12 +4,12 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-    startCommand: gunicorn app:app --worker-tmp-dir /dev/shm
+    startCommand: gunicorn audit_assistant.app:app --worker-tmp-dir /dev/shm
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0
       - key: FLASK_APP
-        value: app.py
+        value: audit_assistant/app.py
       - key: FLASK_ENV
         value: production
       - key: SECRET_KEY
